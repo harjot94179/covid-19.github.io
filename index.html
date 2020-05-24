@@ -1,0 +1,267 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(21, 32, 43);
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        button {
+            background-color: transparent;
+            color: rgb(222, 255, 130);
+            border: none;
+        }
+    </style>
+</head>
+
+<body onload="datafetch();">
+    <div class="container">
+        <header>
+            <br><br>
+
+            <h1 class="display-3 text-center text-primary" style="font-size:4vh; font-weight: bold; font-family:'Kanit', sans-serif;">COVID19-<span class="animated heartbeat text-danger">WORLD</h1>
+            <hr class="w-25 mx-auto pb-5">
+            
+         </header>
+          
+        </div>
+
+        
+            <div class="tabcontent" id="tracker">
+            <div class="container">
+            <h2 class="text-center font-weight-bold" id="date1" style="font-size:1.5vh;color: darkkhaki;"></h2>
+            <br><br>
+            <div data-aos="zoom-in">
+                            <div class="row">
+                    <div class="col-lg-4 col-md-4 col-4" id="conf">
+                        <h2 class="text-warning text-center font-weight-bold" style="font-size:2.5vw;font-size:1.5vh;">[Confirmed]</h2><br>
+                        <h2 id="newcon" class="text-info text-center font-weight-bold" style="font-size:1.5vw;font-size:1.5vh;font-weight:bold;"></h2>
+                        <h1 id="con" class="text-light text-center font-weight-bold" style="font-size:2.5vw;font-size:2.5vh;font-weight:bold;"> </h1><br>
+                       
+                    </div>
+                
+                    <div class="col-lg-4 col-md-4 col-4" id="rcvr">
+                        <h2 class="text-success text-center font-weight-bold" style="font-size:2.5vw;font-size:1.5vh;">[Recovered]</h2><br>
+                        <h2 id="newrcv" class="text-info text-center font-weight-bold" style="font-size:1.5vw;font-size:1.5vh;font-weight:bold;"></h2>
+                        <h1 id="rcv" class="text-light text-center font-weight-bold" style="font-size:2.5vw;font-size:2.5vh;font-weight:bold;"> </h1><br>
+
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-4" id="death">
+                        <h2 class="text-danger text-center font-weight-bold" style="font-size:2.5vw;font-size:1.5vh;">[Deaths]</h2><br>
+                        <h2 id="newdth" class="text-info text-center font-weight-bold" style="font-size:1.5vw;font-size:1.5vh;font-weight:bold;"></h2>
+                        <h1 id="dth" class="text-light text-center font-weight-bold" style="font-size:2.5vw;font-size:2.5vh;"> </h1><br>
+                        
+                    </div>
+                </div>
+            </div>
+
+                <hr class="w-25 mx-auto pb-5">
+            
+                <section>
+                <div class="container">
+                      <div class="table table-responsive centered text-center" >
+                          <table class="table-striped text-center centered" id="tbval" style="font-size:2.2vw;font-size:1.5vh;">
+                              <tr>
+                                  <th class="text-primary th-lg" onclick="sortTable(0)">Country</th>
+                                  <th class="text-primary th-lg" onclick="sortTable(1)">Total Confirmed ^</th>
+                                  <th class="text-primary th-lg" onclick="sortTable(2)"> New Confirmed ^</th>
+                                  <th class="text-primary th-lg" onclick="sortTable(3)">Total Recovered ^</th>
+                                  <th class="text-primary th-lg" onclick="sortTable(4)">New Recovered ^</th>
+                                  <th class="text-primary th-lg" onclick="sortTable(5)">Total Deaths ^</th>
+                                  <th class="text-primary th-lg" onclick="sortTable(6)">New Deaths ^</th>
+                                  
+                              </tr>
+                          </table>
+                        </div>
+                  </div>
+                </section>
+            </div>
+            </div>
+            
+        
+    
+           
+ <hr class="w-25 mx-auto pb-5">
+ <br>
+<footer id="footer" style="background-color: rgb(0, 21, 29);">
+<hr><hr>
+<div class=container-fluid>
+<h3 class="text-center text-success font-weight-bold " style="font-size:4.0vh ;" class="animated infinite heartbeat">
+                    Stay Home Stay Safe
+                  </h3>
+                 
+                  <hr>
+
+<div class="row">
+<div class="col-lg-4 col-md-4 col-4 text-center text-warning ">
+<a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019" style="text-decoration:none; font-size:2.0vh; color:yellow;" class="text-center font-weight-bold text-danger">WHO/covid-19</a>
+</div>  
+<div class="col-lg-4 col-md-4 col-4 text-center">
+<a href="indiatracker.html" style="text-decoration:none; font-size:2.0vh; color:yellow;" class="text-center font-weight-bold text-danger">India Tracker</a>
+</div>  
+<div class="col-lg-4 col-md-4 col-4 text-center">
+<a href="testing.html" style="text-decoration:none; font-size:2.0vh; color:yellow;" class="text-center font-weight-bold text-danger">Corona Testing</a>
+</div>  
+
+</div>
+<hr>
+<div class="container">
+<div class="row text-center"style="align:center;">
+<div class="col-lg-4 col-md-12 col-sm-12 col-12">
+
+  </div>
+  <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+  <a href="https://twitter.com/harjot94179" class-"twitter text-center " style="padding:1.25vw; color:yellow;"><i class="fa fa-twitter fa-2x"></i>
+  </a>
+    <a href="https://www.instagram.com/harjot.singh.k/" class-"twitter text-center" style="padding:1.25vw; color:yellow;"><i class="fa fa-instagram fa-2x"></i>
+  </a>
+  <a href="https://github.com/harjot94179" class-"twitter text-center " style="padding:1.25vw; color:yellow;"><i class="fa fa-github fa-2x"></i>
+  </a>
+  <a href="mailto : harjot94179@gmail.com" class-"twitter text-center " style="padding:1.25vw; color:yellow;"><i class="fa fa-google-plus fa-2x"></i>
+  </a>
+ 
+ 
+  </div>
+  
+  <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+
+  </div>
+</div>
+</div>
+     
+                
+               
+<hr>
+  
+   
+   
+  </div>
+  <p class="text-muted text-center" style="padding:0; background-color:black;">Copyright &copy; Developed by Harjot Singh</p>
+  <div class="container">
+  <div class="row">
+ <div class="col-lg-4 col-md-4 col-4 text-center"></div>
+ <div class="col-lg-4 col-md-4 col-4 text-center">
+
+  <a href="https://www.freecounterstat.com" title="page counter"><img src="https://counter3.stat.ovh/private/freecounterstat.php?c=jxngnmkf936zmzr7gemc5xltupygemad" border="0" title="page counter" alt="page counter"></a>
+              </div>
+ <div class="col-lg-4 col-md-4 col-4 text-center"></div>
+
+</div>
+</div>
+</footer>
+        
+        
+        
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> 
+        <script>
+  AOS.init();
+</script>
+<script>
+    
+
+// Get the element with id="defaultOpen" and click on it
+
+            function datafetch(){
+                $.get("https://api.covid19api.com/summary",
+                    function (data){
+                         var c=(data['Countries'].length);
+                        document.getElementById('date1').innerHTML="Last Updated At "+data['Date'];
+                        document.getElementById('con').innerHTML=data['Global']['TotalConfirmed'];
+                        document.getElementById('newcon').innerHTML="[+ "+data['Global']['NewConfirmed']+"]";
+                        document.getElementById('rcv').innerHTML=data['Global']['TotalRecovered'];
+                        document.getElementById('newrcv').innerHTML="[+ "+data['Global']['NewRecovered']+"]";
+                        document.getElementById('dth').innerHTML=data['Global']['TotalDeaths'];
+                        document.getElementById('newdth').innerHTML="[+ "+data['Global']['NewDeaths']+"]";
+                        var tbval =document.getElementById('tbval');
+                        
+                        for(var i=1;i<c;i++){
+                            var x= tbval.insertRow();
+                            x.insertCell(0);
+                            tbval.rows[i].cells[0].innerHTML = data['Countries'][i-1]['Country'];
+                            tbval.rows[i].cells[0].style.color = 'white' ;
+                            x.insertCell(1);
+                            tbval.rows[i].cells[1].innerHTML = data['Countries'][i-1]['TotalConfirmed'];
+                            tbval.rows[i].cells[1].style.color = 'yellow' ;
+                             
+                            x.insertCell(2);
+                            tbval.rows[i].cells[2].innerHTML = data['Countries'][i-1]['NewConfirmed'];
+                            tbval.rows[i].cells[2].style.color = 'yellow' ;
+                            x.insertCell(3);
+                            tbval.rows[i].cells[3].innerHTML = data['Countries'][i-1]['TotalRecovered'];
+                            tbval.rows[i].cells[3].style.color = 'deepskyblue' ;
+                            tbval.rows[i].cells[3].style.font= 'bold' ;
+                            x.insertCell(4);
+                            tbval.rows[i].cells[4].innerHTML = data['Countries'][i-1]['NewRecovered'];
+                            tbval.rows[i].cells[4].style.color = 'deepskyblue' ;
+                            x.insertCell(5);
+                            tbval.rows[i].cells[5].innerHTML = data['Countries'][i-1]['TotalDeaths'];
+                            tbval.rows[i].cells[5].style.color = 'rgb(255, 91, 91)' ; 
+                            
+                            x.insertCell(6);
+                            tbval.rows[i].cells[6].innerHTML = data['Countries'][i-1]['NewDeaths'];
+                            tbval.rows[i].cells[6].style.color = 'rgb(255, 91, 91)' ; 
+                            
+                              
+                              
+                        }
+                    }
+                )
+
+            }
+            function sortTable(n) {
+                var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("tbval");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      //check if the two rows should switch place:
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+           
+        </script>   
+        
+    </body>
+</html>
